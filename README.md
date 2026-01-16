@@ -73,55 +73,6 @@ Each area guide includes:
 - Risk assessment framework
 - 2025-2030 market outlook
 
-## 🎯 How to Use This Knowledge Base
-
-### For Building a RAG System (Option 2 Architecture)
-
-**1. Chunking Strategy**:
-- Chunk by H2 headers (##) - each major section becomes a chunk
-- Typical chunk size: 300-800 words
-- Preserve context (include section title in each chunk)
-
-**2. Embedding**:
-- Use sentence-transformers: `all-MiniLM-L6-v2` (free, fast)
-- Or Voyage AI / OpenAI embeddings (higher quality)
-- Embed both the content AND metadata (area name, file type)
-
-**3. Vector Database**:
-- **ChromaDB** (local, free): Good for development/MVP
-- **Pinecone** (cloud): Better for production at scale
-- Store metadata: source_file, area, section_title, chunk_id
-
-**4. Retrieval Logic**:
-```python
-# Example query: "I want to invest in student housing"
-# Should retrieve:
-# - Juja area guide (student housing sections)
-# - Ruiru area guide (JKUAT proximity)
-# - Market trends (student housing investor persona)
-# - FAQs (rental yield questions)
-```
-
-**5. Context Building**:
-- Retrieve top 5-7 relevant chunks
-- Combine with conversation history
-- Pass to DeepSeek as system prompt context
-- DeepSeek generates response using retrieved knowledge
-
-### For Manual Reference (Sales Training)
-
-**Onboarding New Sales Agents**:
-1. Start with `market_trends_2025.md` (big picture)
-2. Deep-dive into 2-3 area guides relevant to their territory
-3. Study `objection_handling.md` (practice role-plays)
-4. Memorize `faqs.md` answers
-5. Master `payment_methods.md` (operational knowledge)
-
-**Daily Use**:
-- Before client call: Review relevant area guide
-- During objection: Reference objection_handling.md
-- For calculations: Use ROI examples in area guides
-- For process questions: Check faqs.md
 
 ## 📈 Data Sources & Accuracy
 
@@ -137,70 +88,6 @@ All data in these guides is based on:
 **Rental yields**: Market averages, actual properties may vary ±2%
 **Prices**: Mid-range estimates, update quarterly for accuracy
 
-## 🔄 Updating the Knowledge Base
-
-**Recommended Update Frequency**:
-- **Quarterly**: Update prices, appreciation rates
-- **Annually**: Refresh infrastructure timelines, market trends
-- **As Needed**: New areas, policy changes, major developments
-
-**What to Update**:
-- Price ranges (track HassConsult, Knight Frank reports)
-- Appreciation rates (calculate from sales data)
-- Infrastructure completion dates
-- New estates/developments
-- Government policy changes (taxes, housing programs)
-
-**How to Update**:
-1. Edit the relevant .md file
-2. Re-chunk and re-embed updated sections
-3. Test RAG retrieval with sample queries
-4. Monitor agent responses for accuracy
-
-## 🚀 Next Steps: Implementation
-
-**Phase 1: RAG Setup** (Week 1)
-- [ ] Chunk MD files by H2 headers
-- [ ] Generate embeddings (sentence-transformers)
-- [ ] Load into ChromaDB
-- [ ] Test retrieval accuracy (sample queries)
-
-**Phase 2: Backend API** (Week 1-2)
-- [ ] FastAPI endpoints (chat, leads)
-- [ ] DeepSeek integration
-- [ ] RAG retrieval logic
-- [ ] Conversation history storage
-- [ ] Lead qualification tracking
-
-**Phase 3: Frontend** (Week 2)
-- [ ] React chat interface
-- [ ] Message display
-- [ ] Property card rendering
-- [ ] Deploy to Vercel
-
-**Phase 4: Testing & Launch** (Week 2)
-- [ ] End-to-end testing
-- [ ] Sample conversations
-- [ ] Performance optimization
-- [ ] Deploy backend to Render
-
-## 💡 Tips for Maximum Effectiveness
-
-**For the AI Agent**:
-- Always cite specific areas when giving advice
-- Use actual numbers (prices, yields, appreciation) from guides
-- Match buyer profiles to appropriate areas
-- Handle objections with data, not promises
-- Provide comparative analysis (Area A vs Area B)
-
-**For Human Sales Agents**:
-- Don't memorize word-for-word; understand concepts
-- Adapt talking points to each buyer's situation
-- Use ROI calculations to quantify value
-- Be honest about risks (builds trust)
-- Follow up with specific property options after qualifying
-
-## 📞 Key Sales Principles Embedded
 
 1. **Data-Driven Selling**: Every claim backed by numbers
 2. **Problem-Solution Fit**: Match buyer needs to right area
@@ -224,18 +111,16 @@ To make this knowledge base even more powerful:
 
 ## 🎓 Training Scenarios
 
-**Test Your Knowledge**:
+**Test **:
 1. "I work at JKIA, budget KES 5M, family of 4. Where should I buy?"
-   → Answer: Syokimau (10min from JKIA, 3-bed ~KES 6-9M, or Kitengela 3-bed ~KES 4-6M if flexible on commute)
+   
 
 2. "I want 12% rental yield. Is that possible?"
-   → Answer: Yes, Juja student housing (10-14%) or Athi River worker housing (8-10% realistic)
 
 3. "Client says 'too far from Nairobi' for Kitengela. What do I say?"
-   → Answer: [Check objection_handling.md, Objection 1, use Expressway data: 35 min vs. Eastlands 30-40 min]
-
+  
 4. "How do diaspora buyers pay for properties?"
-   → Answer: [Check payment_methods.md, Diaspora section: International wire, Wise, WorldRemit, open Kenyan bank account]
+
 
 ## 📝 Version History
 
@@ -256,7 +141,7 @@ To make this knowledge base even more powerful:
 ## 🙏 How This Knowledge Base Was Created
 
 This knowledge base was compiled through:
-1. **Web research** on Kenya real estate market (January 2025)
+1. **Web research** on Kenya real estate market (January 2026)
 2. **Analysis** of HassConsult, Knight Frank, Cytonn reports
 3. **Synthesis** of best practices in real estate sales
 4. **Kenya-specific contextualization** (M-Pesa, ArdhiSasa, cultural factors)
@@ -264,11 +149,9 @@ This knowledge base was compiled through:
 
 **Built for**: Sales agents, AI chatbots, real estate investors, property developers
 
-**Maintained by**: [Your Company/Team Name]
+**Maintained by**: [Samson Kinyanjui]
 
 **Contact**: [Your Email/Phone]
 
 ---
 
-**Ready to build your AI sales agent? This knowledge base is your foundation. Good luck! 🚀**
-"# Re-Backen" 
